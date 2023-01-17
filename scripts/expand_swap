@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "start creating swap to /tmp/tmp.swap(16G)"
+dd if=/dev/zero of=/tmp/tmp.swap bs=1G count=16
+echo "/tmp/tmp.swap created"
+chmod 600 /tmp/tmp.swap
+echo "staring making swap"
+mkswap /tmp/tmp.swap
+echo "swap made, turing on swap"
+sudo swapon /tmp/tmp.swap
+echo "done"
+free -h
